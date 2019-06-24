@@ -38,7 +38,11 @@ repositories {
 }
 
 dependencies {
+<<<<<<< HEAD
     compile 'co.csadev:kwikpicker:2.0.0'
+=======
+    compile 'co.csadev.kwikpicker:1.0.1'
+>>>>>>> parent of 4163dfb... Migrate to AndroidX, update to 2.0.0
 }
 
 ```

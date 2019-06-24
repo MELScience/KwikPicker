@@ -1,16 +1,21 @@
 package co.csadev.kwikpicker
 
 import android.graphics.Rect
-import androidx.recyclerview.widget.RecyclerView
+import android.support.v7.widget.RecyclerView
 import android.view.View
 
 class GridSpacingItemDecoration(
     private val spanCount: Int,
     private val spacing: Int,
     private val includeEdge: Boolean
-) : androidx.recyclerview.widget.RecyclerView.ItemDecoration() {
+) : RecyclerView.ItemDecoration() {
 
-    override fun getItemOffsets(outRect: Rect, view: View, parent: RecyclerView, state: RecyclerView.State) {
+    override fun getItemOffsets(
+        outRect: Rect,
+        view: View,
+        parent: RecyclerView,
+        state: RecyclerView.State?
+    ) {
         val position = parent.getChildAdapterPosition(view) // item position
 
         if (position >= 0) {

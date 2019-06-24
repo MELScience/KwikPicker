@@ -27,6 +27,7 @@ import android.widget.*
 import co.csadev.kwikpicker.adapter.ImageGalleryAdapter
 import java.io.File
 import java.io.IOException
+import java.io.Serializable
 import java.net.URI
 import java.text.SimpleDateFormat
 import java.util.*
@@ -99,6 +100,7 @@ class KwikPicker : BottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         cameraImageUri = savedInstanceState?.getParcelable(EXTRA_CAMERA_IMAGE_URI)
+        builder = arguments?.getSerializable("builder") as Builder
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -450,7 +452,7 @@ class KwikPicker : BottomSheetDialogFragment() {
         var completeButtonText: String? = "Done",
         var emptySelectionText: String? = "No Image",
         var selectMaxCountErrorText: String? = null,
-        var selectMinCountErrorText: String? = null) {
+        var selectMinCountErrorText: String? = null): Serializable {
 
         fun create(context: Context): KwikPicker {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && ContextCompat.checkSelfPermission(
@@ -465,7 +467,9 @@ class KwikPicker : BottomSheetDialogFragment() {
             }
 
             val customBottomSheetDialogFragment = KwikPicker()
-            customBottomSheetDialogFragment.builder = this
+            customBottomSheetDialogFragment.arguments = Bundle().apply {
+                putSerializable("builder", this@Builder)
+            }
             return customBottomSheetDialogFragment
         }
     }

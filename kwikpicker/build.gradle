@@ -14,7 +14,7 @@ ext {
     siteUrl = 'https://github.com/gtcompscientist/KwikPicker'
     gitUrl = 'https://github.com/gtcompscientist/KwikPicker.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.1.0'
 
     developerId = 'gtcompscientist'
     developerName = 'Charles Anderson'
